@@ -17,11 +17,11 @@ def main():
     """
     # load env
     load_dotenv()
-
     input_folder = os.getenv("INPUT_FOLDER")
     extension = os.getenv("VALID_EXTENSION")
     model_name = os.getenv("MODEL_NAME")
     api_key = os.getenv("API_KEY")
+    output_test_folder = os.getenv("OUTPUT_TEST_FOLDER")
 
     # @TODO move to config file
     exclude_folders = [".venv", "build"]
@@ -50,10 +50,15 @@ def main():
         prompt += f"code: {files_list.get(filepath)}"
 
         # save if not exists
-        output_path = f"test/test_{filename}"
+        output_path = f"{output_test_folder}/test_{filename}"
         if not pathlib.Path(output_path).is_file():
             modelo = OpenAIModel(model_name, modo._SYSTEM_PROMPT, api_key)
             test_code = modelo.generate_response(prompt)
+
+            # check if output folder exists
+            if not pathlib.Path(output_test_folder).is_dir():
+                logger.info(f"Creating output folder at {output_test_folder}")
+                os.mkdir(output_test_folder)
 
             with open(output_path, "w") as fo:
                 # get the code from codeblock
