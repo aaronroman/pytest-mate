@@ -1,0 +1,5 @@
+.pytest_cache/**
+.venv/**
+testmate.egg-info/**
+__pycache__/
+*.pyc
