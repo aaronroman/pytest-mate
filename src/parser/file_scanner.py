@@ -1,5 +1,6 @@
 import os
 import re
+from loguru import logger
 
 
 class FileScanner:
@@ -35,6 +36,12 @@ class FileScanner:
 
     def _scan_folder(self, folder_path):
         result = []
+
+        # check exist folder folder_path
+        if not os.path.isdir(folder_path):
+            logger.critical(f"Folder {folder_path} does not exist")
+            return result
+
         for entry in os.listdir(folder_path):
             entry_path = os.path.join(folder_path, entry)
 

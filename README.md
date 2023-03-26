@@ -16,7 +16,7 @@ python -m venv .venv
 pip install -r requirements.txt
 
 # setup
-python3 setup.py install
+pip install -e .
 ```
 
 

@@ -3,10 +3,10 @@ import re
 import pathlib
 import os
 from loguru import logger
-from parser.file_scanner import FileScanner
-from parser.file_reader import FileReader
-from custom_openai.api_request import OpenAIModel
-import modos.unittesting as modo
+from .parser.file_scanner import FileScanner
+from .parser.file_reader import FileReader
+from .custom_openai.api_request import OpenAIModel
+from .modos.unittesting import _SYSTEM_PROMPT
 from dotenv import load_dotenv
 
 
@@ -17,7 +17,8 @@ def main():
     """
     # load env
     load_dotenv()
-    input_folder = os.getenv("INPUT_FOLDER")
+
+    input_folder = os.getenv("INPUT_FOLDER")  # change to arguement
     extension = os.getenv("VALID_EXTENSION")
     model_name = os.getenv("MODEL_NAME")
     api_key = os.getenv("API_KEY")
@@ -52,7 +53,7 @@ def main():
         # save if not exists
         output_path = f"{output_test_folder}/test_{filename}"
         if not pathlib.Path(output_path).is_file():
-            modelo = OpenAIModel(model_name, modo._SYSTEM_PROMPT, api_key)
+            modelo = OpenAIModel(model_name, _SYSTEM_PROMPT, api_key)
             test_code = modelo.generate_response(prompt)
 
             # check if output folder exists
