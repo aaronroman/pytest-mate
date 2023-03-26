@@ -26,7 +26,7 @@ To obtain an OpenAI API key, you need to first navigate to the [developer page](
 | <img src="images/openai_step_2.png" align="right" style="zoom:50%;" /><img src="images/openai_step_1.png" align="left" style="zoom: 50%;" /> |      |
 | ------------------------------------------------------------ | ---- |
 
-** Introduce your API KEY on `.env` file located inside `src` folder.
+** Introduce your API KEY on `.env`
 
 ## Usage
 
