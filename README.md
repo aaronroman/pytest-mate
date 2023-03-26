@@ -21,12 +21,9 @@ python3 setup.py install
 
 
 
-To obtain an OpenAI API key, you need to first navigate to the [developer page](https://platform.openai.com/overview) and log in to your account. Once logged in, you can request an API key from the dropdown menu. Please note that API queries are charged, so you will need to provide a payment method before you can make requests
+To obtain an OpenAI API key, you need to first navigate to the [developer page](https://platform.openai.com/overview) and log in to your account. Once logged in, you can request an API key from the dropdown menu. Please note that API queries are charged, so you will need to provide a payment method before you can make requests. Add your API Key to `.env` file
 
-| <img src="images/openai_step_2.png" align="right" style="zoom:50%;" /><img src="images/openai_step_1.png" align="left" style="zoom: 50%;" /> |      |
-| ------------------------------------------------------------ | ---- |
-
-** Introduce your API KEY on `.env`
+!["Where API KEY is located"](images/openai_step_1.png)
 
 ## Usage
 
